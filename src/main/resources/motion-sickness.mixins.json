@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "eigencraft.motionsickness.mixin",
+  "minVersion": "0.7",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "MixinBlock",
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
