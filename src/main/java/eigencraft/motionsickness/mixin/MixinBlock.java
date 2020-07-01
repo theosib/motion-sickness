@@ -1,5 +1,6 @@
-package eigencraft.motionprint.mixin;
+package eigencraft.motionsickness.mixin;
 
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -11,8 +12,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Block.class)
-public class MixinBlock {
-    @Shadow @Final private float slipperiness;
+public abstract class MixinBlock {
+    @Shadow @Final protected float slipperiness;
 
     @Inject(method = "getSlipperiness", at = @At("HEAD"), cancellable = true)
     public void setCustomSlipperiness(CallbackInfoReturnable<Float> cir) {

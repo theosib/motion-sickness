@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "motion-sickness",
   "name": "Motion Sickness",
-  "version": "${mod_version}",
+  "version": "1.0",
   "description": "Modifies block properties to vary game difficulty",
   "authors": [
     "AMereBagatelle",
@@ -13,7 +13,6 @@
     "sources": "https://github.com/theosib/motion-sickness"
   },
   "license": "CC0-1.0",
-  "icon": "assets/motion-sickness/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
