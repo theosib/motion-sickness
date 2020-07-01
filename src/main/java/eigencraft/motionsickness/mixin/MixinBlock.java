@@ -12,9 +12,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Block.class)
-public class MixinBlock{
-    @Shadow
-    public float slipperiness;
+public abstract class MixinBlock {
+    @Shadow @Final protected float slipperiness;
 
     @Inject(method = "getSlipperiness", at = @At("HEAD"), cancellable = true)
     public void setCustomSlipperiness(CallbackInfoReturnable<Float> cir) {
