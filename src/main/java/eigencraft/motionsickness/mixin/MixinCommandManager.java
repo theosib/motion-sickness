@@ -14,8 +14,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(CommandManager.class)
 public class MixinCommandManager {
-    @Inject(method = "<init>(Lnet/minecraft/server/command/CommandManager$RegistrationEnvironment;)V", at = @At("RETURN"))
-    private void onInit(CommandManager.RegistrationEnvironment environment, CallbackInfo ci) {
+    @Inject(method = "<init>(Z)V", at = @At("RETURN"))
+    private void onInit(boolean isDedicatedServer, CallbackInfo ci) {
         CommandDispatcher<net.minecraft.server.command.ServerCommandSource> dispatcher = ((CommandManager) (Object) this).getDispatcher();
 
         ArgumentCommandNode<ServerCommandSource, Float> argInterval = CommandManager.argument("slipperiness", FloatArgumentType.floatArg())
