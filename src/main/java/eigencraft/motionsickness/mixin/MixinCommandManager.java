@@ -18,7 +18,7 @@ public class MixinCommandManager {
     private void onInit(CommandManager.RegistrationEnvironment environment, CallbackInfo ci) {
         CommandDispatcher<net.minecraft.server.command.ServerCommandSource> dispatcher = ((CommandManager) (Object) this).getDispatcher();
 
-        ArgumentCommandNode<ServerCommandSource, Float> argInterval = CommandManager.argument("slipperiness", FloatArgumentType.floatArg(0,1.0f))
+        ArgumentCommandNode<ServerCommandSource, Float> argInterval = CommandManager.argument("slipperiness", FloatArgumentType.floatArg())
                 .executes(c -> {
                     Settings.slipperiness = FloatArgumentType.getFloat(c, "slipperiness");
                     c.getSource().sendFeedback(new LiteralText(String.format("Set slipperiness to %f",Settings.slipperiness)),false);
@@ -27,7 +27,6 @@ public class MixinCommandManager {
 
         dispatcher.register(
                 CommandManager.literal("motion-slipperiness").then(argInterval)
-                        //.then(SetSlipperinessCommand.registerSubCommand(dispatcher))
         );
 
     }

@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(Block.class)
 public abstract class MixinBlock {
 
-    @Inject(method = "getSlipperiness", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "getVelocityMultiplier()F", at = @At("HEAD"), cancellable = true)
     public void setCustomSlipperiness(CallbackInfoReturnable<Float> cir) {
         cir.setReturnValue(Settings.slipperiness);
         cir.cancel();
